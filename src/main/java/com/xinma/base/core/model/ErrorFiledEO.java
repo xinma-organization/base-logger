@@ -5,9 +5,9 @@ import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
 
-public class ErrorFiledDTO implements Serializable {
+public class ErrorFiledEO implements Serializable {
 
-	private static final long serialVersionUID = -751213389939917698L;
+	private static final long serialVersionUID = -8178546814501086639L;
 
 	@JsonProperty("code")
 	@JsonView(BaseView.Base.class)
@@ -33,11 +33,11 @@ public class ErrorFiledDTO implements Serializable {
 		this.message = message;
 	}
 
-	public ErrorFiledDTO() {
+	public ErrorFiledEO() {
 		super();
 	}
-	
-	public ErrorFiledDTO(String code, String message) {
+
+	public ErrorFiledEO(String code, String message) {
 		super();
 		this.code = code;
 		this.message = message;
@@ -60,7 +60,7 @@ public class ErrorFiledDTO implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ErrorFiledDTO other = (ErrorFiledDTO) obj;
+		ErrorFiledEO other = (ErrorFiledEO) obj;
 		if (code == null) {
 			if (other.code != null)
 				return false;

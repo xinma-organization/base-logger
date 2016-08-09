@@ -8,14 +8,16 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 /**
- * 用户非法访问数据结构
+ * 用户非法访问数据结构,一般用于用户访问频繁
  * 
- * @author Hoctor
+ * @author Alauda
+ *
+ * @date 2016年6月27日
  *
  */
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class IllegalAccessDTO implements Serializable {
+public class IllegalAccessEO implements Serializable {
 
 	private static final long serialVersionUID = -6854714956931513914L;
 
@@ -45,11 +47,11 @@ public class IllegalAccessDTO implements Serializable {
 		this.date = date;
 	}
 
-	public IllegalAccessDTO() {
+	public IllegalAccessEO() {
 		super();
 	}
 
-	public IllegalAccessDTO(String ip, Date date) {
+	public IllegalAccessEO(String ip, Date date) {
 		super();
 		this.ip = ip;
 		this.date = date;

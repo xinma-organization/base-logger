@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonView;
  *
  */
 
-public class ResponseDTO implements Serializable {
+public class ResponseVO implements Serializable {
 
 	private static final long serialVersionUID = -1157159645006381792L;
 
@@ -27,7 +27,7 @@ public class ResponseDTO implements Serializable {
 
 	@JsonProperty("errors")
 	@JsonView(BaseView.Base.class)
-	private List<ErrorFiledDTO> errors = new ArrayList<ErrorFiledDTO>();
+	private List<ErrorFiledEO> errors = new ArrayList<ErrorFiledEO>();
 
 	public boolean getSuccess() {
 		return success;
@@ -45,33 +45,33 @@ public class ResponseDTO implements Serializable {
 		this.result = result;
 	}
 
-	public List<ErrorFiledDTO> getErrors() {
+	public List<ErrorFiledEO> getErrors() {
 		return errors;
 	}
 
-	public void setErrors(List<ErrorFiledDTO> errors) {
+	public void setErrors(List<ErrorFiledEO> errors) {
 		this.errors = errors;
 	}
 
-	public void addError(ErrorFiledDTO errorFiledDTO) {
+	public void addError(ErrorFiledEO errorFiledDTO) {
 		errors.add(errorFiledDTO);
 	}
 
 	public void addError(String code, String message) {
-		errors.add(new ErrorFiledDTO(code, message));
+		errors.add(new ErrorFiledEO(code, message));
 	}
 
-	public ResponseDTO() {
+	public ResponseVO() {
 		super();
 	}
 
-	public ResponseDTO(boolean success, Object result) {
+	public ResponseVO(boolean success, Object result) {
 		super();
 		this.success = success;
 		this.result = result;
 	}
 
-	public ResponseDTO(boolean success, Object result, List<ErrorFiledDTO> errors) {
+	public ResponseVO(boolean success, Object result, List<ErrorFiledEO> errors) {
 		super();
 		this.success = success;
 		this.result = result;
@@ -95,7 +95,7 @@ public class ResponseDTO implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ResponseDTO other = (ResponseDTO) obj;
+		ResponseVO other = (ResponseVO) obj;
 		if (errors == null) {
 			if (other.errors != null)
 				return false;
