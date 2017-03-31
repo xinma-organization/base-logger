@@ -43,7 +43,7 @@ public class MnsLogBackFilter extends TurboFilter {
 				CustomException ce = (CustomException) t;
 
 				CustomErrorLogTO errorLog = new CustomErrorLogTO();
-				errorLog.setErrorCode(ce.getError());
+				errorLog.setErrorCode(ce.getError().value());
 				if (ce.getParams() != null && ce.getParams().length > 0) {
 					// 调用第三方返回错误代码记录
 					errorLog.setParams(Arrays.asList(ce.getParams()));
